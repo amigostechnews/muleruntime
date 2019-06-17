@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2bf88d1a-76c6-403a-8052-3ce4793bf51f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="muleruntimeFlow" doc:id="8f103950-f474-44c1-a5ca-fe1d7659fa5d" >
+		<http:listener doc:name="Listener" doc:id="7b788f88-ded9-44b7-8dd0-df09507df658" config-ref="HTTP_Listener_config" path="muleruntime"/>
+		<logger level="INFO" doc:name="Logger" doc:id="ccfb9129-a696-4e43-af33-499f6e437faa" message="Iam from mule run time logger ........"/>
+		<set-payload value="#['Iam from mule run time set payload........']" doc:name="Set Payload" doc:id="3a9a12c0-c7a9-421b-90cf-1c9328343eac" />
+	</flow>
+</mule>
